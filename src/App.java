@@ -47,10 +47,14 @@ public class App {
         }
     }
     public static void main(String[] args) throws Exception {
-        getFirst();
-        getSecond();
-        getOperator();
-        execOperation();
-        System.out.println("Your result is: " + result);
+        try {
+            getFirst();
+            getSecond();
+            getOperator();
+            execOperation();
+            System.out.println("Your result is: " + result);
+        } catch (Exception e) {
+            System.err.println("An error has ocurred!");
+        }
     }
 }
