@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
 public class App {
-    static int firstNumber, secondNumber, reload, operator;
+    static int firstNumber, secondNumber, reload = 1, operator;
     static double result;
 
     static Scanner myFirst = new Scanner(System.in);
     static Scanner mySecond = new Scanner(System.in);
     static Scanner myOperator = new Scanner(System.in);
+    static Scanner myReload = new Scanner(System.in);
 
     public static void getFirst(){
         System.out.println("Your first number: ");
@@ -46,13 +47,25 @@ public class App {
                 break;
         }
     }
+
+    public static void isReloaded(){
+        System.out.println("Try the program again?");
+        System.out.println("1: Yes");
+        System.out.println("2: No");
+        reload = myReload.nextInt();
+    }
+
     public static void main(String[] args) throws Exception {
         try {
-            getFirst();
-            getSecond();
-            getOperator();
-            execOperation();
-            System.out.println("Your result is: " + result);
+            while (reload == 1) {
+                getFirst();
+                getSecond();
+                getOperator();
+                execOperation();
+                System.out.println("Your result is: " + result);
+                isReloaded();
+            }
+            
         } catch (Exception e) {
             System.err.println("An error has ocurred!");
         }
